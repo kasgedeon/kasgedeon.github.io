@@ -1,0 +1,21 @@
+html{
+	height: 100%
+}
+body{
+  padding-top: 56px;
+  height: 100%;
+}
+
+#wrap{
+	min-height: 90%;
+}
+
+.img_container, .desc_container{
+	padding: 10px 15px;
+	-webkit-box-shadow: 2px 2px 11px 5px rgba(240,240,240,1);
+	-moz-box-shadow: 2px 2px 11px 5px rgba(240,240,240,1);
+	box-shadow: 2px 2px 11px 5px rgba(240,240,240,1);
+}
+footer{
+		
+}
