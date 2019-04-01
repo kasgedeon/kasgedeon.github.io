@@ -9,35 +9,33 @@ $('#depositSlider').attr('max', carPrice/2);
 $('#depositSlider').attr('min', carPrice/10);
 $('#depositSlider').attr('value', carPrice/10);
 
-
-document.getElementById("depositValue").innerHTML = carPrice/10;
+$('#depositValue').html(carPrice/10);
 
 // print initial results
-document.getElementById("total-price").innerHTML = computeTotalPrice(12, carPrice/10);
-document.getElementById("monthlyRepayment").innerHTML = computeMonthly(carPrice/10, 12)
+$('#total-price').html(computeTotalPrice(12, carPrice/10));
+$('#monthlyRepayment').html(computeMonthly(carPrice/10, 12));
 
-document.getElementById("depositSlider").addEventListener("change", function(){
-	deposit = document.getElementById("depositSlider").value;
-	months = document.getElementById("monthSlider").value;
+$('#depositSlider').on('change', function(){
+	deposit = $('#depositSlider').val(); 
+	months = $('#monthSlider').val();
 
-	document.getElementById("depositValue").innerHTML = deposit;
-	
-	// print results 
-	document.getElementById("total-price").innerHTML = computeTotalPrice(months, deposit);
-	document.getElementById("monthlyRepayment").innerHTML = computeMonthly(deposit, months)
+	$('#depositValue').html(deposit);
+
+	$('#total-price').html(computeTotalPrice(months, deposit));
+	$('#monthlyRepayment').html(computeMonthly(deposit, months));
 });
 
-document.getElementById("monthSlider").addEventListener("change", function(){
+$('#monthSlider').on('change', function(){
 
-	months = document.getElementById("monthSlider").value;
-	deposit = document.getElementById("depositSlider").value;
+	deposit = $('#depositSlider').val(); 
+	months = $('#monthSlider').val();
 
 	// print changed monthy value
-	document.getElementById("monthValue").innerHTML = months;
+	$('#monthValue').html(months);
 
 	// print results 
-	document.getElementById("total-price").innerHTML = computeTotalPrice(months, deposit);
-	document.getElementById("monthlyRepayment").innerHTML = computeMonthly(deposit, months)
+	$('#total-price').html(computeTotalPrice(months, deposit));
+	$('#monthlyRepayment').html(computeMonthly(deposit, months));
 });
 
 function computeTotalPrice(month, deposited){
@@ -51,22 +49,5 @@ function computeMonthly(deposited, month){
 }
 
 // Show interest on page
-document.getElementById("interestRate").innerHTML = interest *100;
+$('#interestRate').html(interest *100); 
 
-// var totalPrice = carPrice * Math.pow((interestRate + 1),months/12);
-// var monthlyPayment = (totalPrice-deposit) / months; 
-
-// Show Total price on page and monthly payment
-// document.getElementById("total-price").innerHTML = totalPrice;
-// document.getElementById("monthlyRepayment").innerHTML = monthlyPayment;
-
-
-
-
-
-// $(document).ready(function(){
-//     $("#depositSlider").slider();
-// 	$("#depositSlider").on("slide", function(slideEvt) {
-// 		$("#depositSliderSliderVal").text(slideEvt.value);
-// 		});
-//   });
